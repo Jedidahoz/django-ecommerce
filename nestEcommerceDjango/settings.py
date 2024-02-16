@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-a28mf&!^x!+hr&%rl89rxldta8p5$vzofb3oajvfu=s_=#ryd#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'nestEcommerceDjango.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
 
 
@@ -129,7 +129,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'base/static'),
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'base/static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'base/static')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
